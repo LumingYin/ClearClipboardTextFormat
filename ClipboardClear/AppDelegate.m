@@ -21,6 +21,7 @@
 @property (weak) IBOutlet NSWindow *toastWindow;
 @property (weak) IBOutlet NSView *toastView;
 @property (weak) IBOutlet NSTextField *toastMessageTextField;
+@property (weak) IBOutlet NSVisualEffectView *toastBlurView;
 @end
 
 @implementation AppDelegate
@@ -72,7 +73,25 @@
     [self.statusItem setView:self.statusItemView];
 }
 
+- (BOOL)darkModeIsOn {
+    NSDictionary *dict = [[NSUserDefaults standardUserDefaults] persistentDomainForName:NSGlobalDomain];
+    id style = [dict objectForKey:@"AppleInterfaceStyle"];
+    BOOL darkModeOn = ( style && [style isKindOfClass:[NSString class]] && NSOrderedSame == [style caseInsensitiveCompare:@"dark"] );
+    return darkModeOn;
+}
+
 - (void)showToast:(NSString *)message {
+    if ([self darkModeIsOn]) {
+        [self.toastBlurView setMaterial:NSVisualEffectMaterialDark];
+        [self.toastMessageTextField setTextColor:[NSColor whiteColor]];
+    } else {
+        if (@available(macOS 10.11, *)) {
+            [self.toastBlurView setMaterial:NSVisualEffectMaterialMediumLight];
+        } else {
+            [self.toastBlurView setMaterial:NSVisualEffectMaterialLight];
+        }
+        [self.toastMessageTextField setTextColor:[NSColor blackColor]];
+    }
     if (!self.animating) {
         self.animating = YES;
         NSRect frameRelativeToWindow = [self.statusItemView convertRect:self.statusItemView.bounds toView:nil];

@@ -15,6 +15,7 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate">
             <connections>
+                <outlet property="toastBlurView" destination="mPz-Uw-svS" id="lAf-Ep-Vbb"/>
                 <outlet property="toastMessageTextField" destination="lDg-cc-0B3" id="f3d-Ng-AyV"/>
                 <outlet property="toastView" destination="PHi-Kw-XoO" id="KAJ-Uv-eeR"/>
                 <outlet property="toastWindow" destination="FtX-8g-ZUs" id="7LO-sj-UNS"/>
@@ -30,7 +31,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="252" height="88"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <visualEffectView wantsLayer="YES" fixedFrame="YES" blendingMode="behindWindow" material="dark" state="active" translatesAutoresizingMaskIntoConstraints="NO" id="mPz-Uw-svS">
+                    <visualEffectView wantsLayer="YES" fixedFrame="YES" blendingMode="behindWindow" material="appearanceBased" state="active" translatesAutoresizingMaskIntoConstraints="NO" id="mPz-Uw-svS">
                         <rect key="frame" x="0.0" y="0.0" width="252" height="88"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <subviews>
@@ -39,7 +40,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" alignment="left" id="vn8-Vw-9rf">
                                     <font key="font" metaFont="system"/>
-                                    <color key="textColor" red="1" green="1" blue="1" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
@@ -47,7 +48,7 @@
                     </visualEffectView>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="-162" y="-141"/>
+            <point key="canvasLocation" x="-165" y="-125"/>
         </window>
     </objects>
 </document>
