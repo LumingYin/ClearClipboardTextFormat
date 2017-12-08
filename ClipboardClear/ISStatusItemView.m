@@ -24,6 +24,22 @@
     }
 }
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        [[NSDistributedNotificationCenter defaultCenter] addObserver:self selector:@selector(darkModeChanged:) name:@"AppleInterfaceThemeChangedNotification" object:nil];
+    }
+    return self;
+}
+
+- (void)darkModeChanged:(id)sender {
+//    NSDictionary *dict = [[NSUserDefaults standardUserDefaults] persistentDomainForName:NSGlobalDomain];
+//    id style = [dict objectForKey:@"AppleInterfaceStyle"];
+//    BOOL darkModeOn = ( style && [style isKindOfClass:[NSString class]] && NSOrderedSame == [style caseInsensitiveCompare:@"dark"] );
+//    NSLog(@"observed dark mode %d", darkModeOn);
+    [self setNeedsDisplay:YES];
+}
+
 - (void)drawImage:(NSImage *)aImage centeredInRect:(NSRect)aRect{
     NSRect imageRect = NSMakeRect((CGFloat)round(aRect.size.width*0.5f-aImage.size.width*0.5f),
                                   (CGFloat)round(aRect.size.height*0.5f-aImage.size.height*0.5f),
@@ -32,16 +48,21 @@
     [aImage drawInRect:imageRect fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1.0f];
 }
 
+- (BOOL)darkModeIsOn {
+    NSDictionary *dict = [[NSUserDefaults standardUserDefaults] persistentDomainForName:NSGlobalDomain];
+    id style = [dict objectForKey:@"AppleInterfaceStyle"];
+    BOOL darkModeOn = ( style && [style isKindOfClass:[NSString class]] && NSOrderedSame == [style caseInsensitiveCompare:@"dark"] );
+    return darkModeOn;
+}
+
 - (void)drawRect:(NSRect)rect{
     if(self.clicked){
         [[NSColor selectedMenuItemColor] set];
         NSRectFill(rect);
-        if(self.alternateImage){
-            [self drawImage:self.alternateImage centeredInRect:rect];
-        }else if(self.image){
-            [self drawImage:self.image centeredInRect:rect];
-        }
-    }else if(self.image){
+    }
+    if ([self darkModeIsOn] && self.alternateImage) {
+        [self drawImage:self.alternateImage centeredInRect:rect];
+    } else if (![self darkModeIsOn] && self.image) {
         [self drawImage:self.image centeredInRect:rect];
     }
 }
