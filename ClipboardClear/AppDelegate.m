@@ -80,7 +80,7 @@
     return darkModeOn;
 }
 
-- (void)showToast:(NSString *)message {
+- (void)showToast:(NSString *)message withTime:(NSTimeInterval)timeInterval {
     if ([self darkModeIsOn]) {
         [self.toastBlurView setMaterial:NSVisualEffectMaterialDark];
         [self.toastMessageTextField setTextColor:[NSColor whiteColor]];
@@ -94,30 +94,35 @@
     }
     if (!self.animating) {
         self.animating = YES;
+        self.toastMessageTextField.stringValue = message;
+
         NSRect frameRelativeToWindow = [self.statusItemView convertRect:self.statusItemView.bounds toView:nil];
         NSRect frameRelativeToScreen = [self.statusItemView.window convertRectToScreen:frameRelativeToWindow];
+
         
+        CGFloat labelHeight = [((NSTextFieldCell *)[self.toastMessageTextField cell]) cellSizeForBounds:NSMakeRect(0, 0, 216, 76)].height;
+
         NSRect windowRect = self.toastWindow.frame;
         windowRect.origin.x = frameRelativeToScreen.origin.x;
         windowRect.origin.y = frameRelativeToScreen.origin.y;
+        windowRect.size.height = labelHeight + 20;
         [self.toastWindow setFrame:windowRect display:YES];
         
         [NSApp activateIgnoringOtherApps:YES];
-        self.toastMessageTextField.stringValue = message;
         self.toastWindow.alphaValue = 0;
         [self.toastWindow setIsVisible:YES];
         [NSAnimationContext runAnimationGroup:^(NSAnimationContext * _Nonnull context) {
             context.duration = 0.2;
             [self.toastWindow animator].alphaValue = 1;
         } completionHandler:^{
-            [NSTimer scheduledTimerWithTimeInterval:1.5 target:self selector:@selector(nestedAnimation) userInfo:nil repeats:NO];
+            [NSTimer scheduledTimerWithTimeInterval:timeInterval target:self selector:@selector(nestedAnimation) userInfo:nil repeats:NO];
         }];
     }
 }
 
 - (void)nestedAnimation {
     [NSAnimationContext runAnimationGroup:^(NSAnimationContext * _Nonnull context) {
-        context.duration = 1;
+        context.duration = 0.3;
         [self.toastWindow animator].alphaValue = 0;
     } completionHandler:^{
         [self.toastWindow setIsVisible:NO];
@@ -136,9 +141,9 @@
     }
 
     if (self.leftRightSwapped) {
-        [self showToast:@"Clear format with left click enabled. To access app menu and options, secondary click on the menu bar icon."];
+        [self showToast:@"Clear format with left click enabled. To access app menu and options, secondary click on the menu bar icon." withTime:1.0];
     } else {
-        [self showToast:@"Clear format with left click disabled. To access app menu and options, primary click on the menu bar icon."];
+        [self showToast:@"Clear format with left click disabled. To access app menu and options, primary click on the menu bar icon." withTime:1.0];
     }
 }
 
@@ -227,6 +232,7 @@
             [pasteboard setString:str forType:NSStringPboardType];
         }
     }
+    [self showToast:@"Successfully cleared the format of your clipboard text." withTime:0.3];
 }
 
 - (void)quit {
