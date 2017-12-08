@@ -169,15 +169,16 @@
             NSLog(@"Login Item Was Not Successfully disabled");
         } else {
             NSLog(@"Login Item Was Successfully disabled");
+            [self.toggleLaunchItem setState:[self launchOnLogin]];
+
         }
-        [self.toggleLaunchItem setState:[self launchOnLogin]];
     } else {
         if (!SMLoginItemSetEnabled((__bridge CFStringRef)@"com.kay.ClipboardClear-Helper", YES)) {
             NSLog(@"Login Item Was Not Successfully enabled");
         } else {
             NSLog(@"Login Item Was Successfully enabled");
+            [self.toggleLaunchItem setState:[self launchOnLogin]];
         }
-        [self.toggleLaunchItem setState:[self launchOnLogin]];
     }
 }
 
