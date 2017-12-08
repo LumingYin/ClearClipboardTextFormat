@@ -89,7 +89,6 @@
 - (void)showMenu{
     if(self.statusItemView.clicked){
         [self.statusItem popUpStatusItemMenu:self.rightClickMenu];
-        [self.statusItemView setHighlightState:NO];
     }
     [self.statusItemView setHighlightState:NO];
 }
@@ -99,12 +98,13 @@
 }
 
 - (void)clearFormat:(id)sender {
+    [self.statusItemView setHighlightState:NO];
     NSPasteboard *pasteboard = [NSPasteboard generalPasteboard];
     NSArray *classes = [[NSArray alloc] initWithObjects:[NSString class], nil];
     NSDictionary *options = [NSDictionary dictionary];
     NSArray *copiedItems = [pasteboard readObjectsForClasses:classes options:options];
     if (copiedItems != nil) {
-        NSLog(@"%@", copiedItems);
+//        NSLog(@"%@", copiedItems);
         NSString *str = copiedItems[0];
         if (str != nil && [str isKindOfClass:[NSString class]]) {
             [pasteboard clearContents];
@@ -112,7 +112,6 @@
             [pasteboard setString:str forType:NSStringPboardType];
         }
     }
-    [self.statusItemView setHighlightState:NO];
 }
 
 - (void)quit {
