@@ -15,7 +15,26 @@
 		3CA534F21FDA460F00F6436F /* clipboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CA534F01FDA460F00F6436F /* clipboard.png */; };
 		3CA534F61FDA469300F6436F /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 3CA534F51FDA469300F6436F /* icon.icns */; };
 		3CA534FC1FDA48C000F6436F /* ISStatusItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CA534FB1FDA48C000F6436F /* ISStatusItemView.m */; };
+		3CFF1CEF1FDA4C7400CACA4C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CFF1CEE1FDA4C7400CACA4C /* AppDelegate.m */; };
+		3CFF1CF11FDA4C7400CACA4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CFF1CF01FDA4C7400CACA4C /* Assets.xcassets */; };
+		3CFF1CF41FDA4C7400CACA4C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CFF1CF21FDA4C7400CACA4C /* MainMenu.xib */; };
+		3CFF1CF71FDA4C7400CACA4C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CFF1CF61FDA4C7400CACA4C /* main.m */; };
+		3CFF1CFE1FDA4CA500CACA4C /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CFF1CFD1FDA4C9C00CACA4C /* ServiceManagement.framework */; };
+		3CFF1D001FDA4CCC00CACA4C /* ClipboardClear Helper.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3CFF1CEB1FDA4C7400CACA4C /* ClipboardClear Helper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3CFF1CFF1FDA4CBC00CACA4C /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Contents/Library/LoginItems;
+			dstSubfolderSpec = 1;
+			files = (
+				3CFF1D001FDA4CCC00CACA4C /* ClipboardClear Helper.app in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		3CA534D91FDA447D00F6436F /* ClipboardClear.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClipboardClear.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -31,10 +50,27 @@
 		3CA534F51FDA469300F6436F /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
 		3CA534FA1FDA48C000F6436F /* ISStatusItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ISStatusItemView.h; sourceTree = "<group>"; };
 		3CA534FB1FDA48C000F6436F /* ISStatusItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ISStatusItemView.m; sourceTree = "<group>"; };
+		3CFF1CEB1FDA4C7400CACA4C /* ClipboardClear Helper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ClipboardClear Helper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3CFF1CED1FDA4C7400CACA4C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		3CFF1CEE1FDA4C7400CACA4C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		3CFF1CF01FDA4C7400CACA4C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3CFF1CF31FDA4C7400CACA4C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		3CFF1CF51FDA4C7400CACA4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3CFF1CF61FDA4C7400CACA4C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3CFF1CF81FDA4C7400CACA4C /* ClipboardClear_Helper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ClipboardClear_Helper.entitlements; sourceTree = "<group>"; };
+		3CFF1CFD1FDA4C9C00CACA4C /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		3CA534D61FDA447D00F6436F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CFF1CFE1FDA4CA500CACA4C /* ServiceManagement.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3CFF1CE81FDA4C7400CACA4C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -48,7 +84,9 @@
 			isa = PBXGroup;
 			children = (
 				3CA534DB1FDA447D00F6436F /* ClipboardClear */,
+				3CFF1CEC1FDA4C7400CACA4C /* ClipboardClear Helper */,
 				3CA534DA1FDA447D00F6436F /* Products */,
+				3CFF1CFC1FDA4C9C00CACA4C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				3CA534D91FDA447D00F6436F /* ClipboardClear.app */,
+				3CFF1CEB1FDA4C7400CACA4C /* ClipboardClear Helper.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -79,6 +118,28 @@
 			path = ClipboardClear;
 			sourceTree = "<group>";
 		};
+		3CFF1CEC1FDA4C7400CACA4C /* ClipboardClear Helper */ = {
+			isa = PBXGroup;
+			children = (
+				3CFF1CED1FDA4C7400CACA4C /* AppDelegate.h */,
+				3CFF1CEE1FDA4C7400CACA4C /* AppDelegate.m */,
+				3CFF1CF01FDA4C7400CACA4C /* Assets.xcassets */,
+				3CFF1CF21FDA4C7400CACA4C /* MainMenu.xib */,
+				3CFF1CF51FDA4C7400CACA4C /* Info.plist */,
+				3CFF1CF61FDA4C7400CACA4C /* main.m */,
+				3CFF1CF81FDA4C7400CACA4C /* ClipboardClear_Helper.entitlements */,
+			);
+			path = "ClipboardClear Helper";
+			sourceTree = "<group>";
+		};
+		3CFF1CFC1FDA4C9C00CACA4C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3CFF1CFD1FDA4C9C00CACA4C /* ServiceManagement.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -89,6 +150,7 @@
 				3CA534D51FDA447D00F6436F /* Sources */,
 				3CA534D61FDA447D00F6436F /* Frameworks */,
 				3CA534D71FDA447D00F6436F /* Resources */,
+				3CFF1CFF1FDA4CBC00CACA4C /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -97,6 +159,23 @@
 			name = ClipboardClear;
 			productName = ClipboardClear;
 			productReference = 3CA534D91FDA447D00F6436F /* ClipboardClear.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3CFF1CEA1FDA4C7400CACA4C /* ClipboardClear Helper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3CFF1CF91FDA4C7400CACA4C /* Build configuration list for PBXNativeTarget "ClipboardClear Helper" */;
+			buildPhases = (
+				3CFF1CE71FDA4C7400CACA4C /* Sources */,
+				3CFF1CE81FDA4C7400CACA4C /* Frameworks */,
+				3CFF1CE91FDA4C7400CACA4C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ClipboardClear Helper";
+			productName = "ClipboardClear Helper";
+			productReference = 3CFF1CEB1FDA4C7400CACA4C /* ClipboardClear Helper.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -109,6 +188,10 @@
 				ORGANIZATIONNAME = Numeric;
 				TargetAttributes = {
 					3CA534D81FDA447D00F6436F = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+					};
+					3CFF1CEA1FDA4C7400CACA4C = {
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Automatic;
 					};
@@ -128,6 +211,7 @@
 			projectRoot = "";
 			targets = (
 				3CA534D81FDA447D00F6436F /* ClipboardClear */,
+				3CFF1CEA1FDA4C7400CACA4C /* ClipboardClear Helper */,
 			);
 		};
 /* End PBXProject section */
@@ -145,6 +229,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3CFF1CE91FDA4C7400CACA4C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CFF1CF11FDA4C7400CACA4C /* Assets.xcassets in Resources */,
+				3CFF1CF41FDA4C7400CACA4C /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -158,6 +251,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3CFF1CE71FDA4C7400CACA4C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CFF1CF71FDA4C7400CACA4C /* main.m in Sources */,
+				3CFF1CEF1FDA4C7400CACA4C /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
@@ -165,6 +267,14 @@
 			isa = PBXVariantGroup;
 			children = (
 				3CA534E21FDA447D00F6436F /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		3CFF1CF21FDA4C7400CACA4C /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3CFF1CF31FDA4C7400CACA4C /* Base */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -220,7 +330,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -269,7 +379,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 			};
@@ -307,6 +417,40 @@
 			};
 			name = Release;
 		};
+		3CFF1CFA1FDA4C7400CACA4C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "ClipboardClear Helper/ClipboardClear_Helper.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 54362BT7G2;
+				INFOPLIST_FILE = "ClipboardClear Helper/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kay.ClipboardClear-Helper";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		3CFF1CFB1FDA4C7400CACA4C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "ClipboardClear Helper/ClipboardClear_Helper.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 54362BT7G2;
+				INFOPLIST_FILE = "ClipboardClear Helper/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kay.ClipboardClear-Helper";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -324,6 +468,15 @@
 			buildConfigurations = (
 				3CA534EB1FDA447D00F6436F /* Debug */,
 				3CA534EC1FDA447D00F6436F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3CFF1CF91FDA4C7400CACA4C /* Build configuration list for PBXNativeTarget "ClipboardClear Helper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3CFF1CFA1FDA4C7400CACA4C /* Debug */,
+				3CFF1CFB1FDA4C7400CACA4C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
