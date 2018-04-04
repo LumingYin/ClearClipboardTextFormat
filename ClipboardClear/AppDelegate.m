@@ -104,11 +104,12 @@
 
         NSRect windowRect = self.toastWindow.frame;
         windowRect.origin.x = frameRelativeToScreen.origin.x;
-        windowRect.origin.y = frameRelativeToScreen.origin.y;
+        windowRect.origin.y = frameRelativeToScreen.origin.y - (labelHeight + 20);
         windowRect.size.height = labelHeight + 20;
         [self.toastWindow setFrame:windowRect display:YES];
         
-        [NSApp activateIgnoringOtherApps:YES];
+        [self.toastWindow setLevel:NSScreenSaverWindowLevel + 1];
+        [self.toastWindow orderFront:nil];
         self.toastWindow.alphaValue = 0;
         [self.toastWindow setIsVisible:YES];
         [NSAnimationContext runAnimationGroup:^(NSAnimationContext * _Nonnull context) {
