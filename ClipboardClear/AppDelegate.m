@@ -10,6 +10,7 @@
 #import "ISStatusItemView.h"
 #import <ServiceManagement/ServiceManagement.h>
 
+API_AVAILABLE(macos(10.10))
 @interface AppDelegate ()
 @property (nonatomic) BOOL animating;
 @property (nonatomic) BOOL leftRightSwapped;
@@ -18,10 +19,10 @@
 @property (strong, nonatomic) NSMenuItem *toggleLaunchItem;
 @property (strong, nonatomic) NSMenuItem *quickClearItem;
 @property (strong, nonatomic) ISStatusItemView *statusItemView;
-@property (weak) IBOutlet NSWindow *toastWindow;
-@property (weak) IBOutlet NSView *toastView;
-@property (weak) IBOutlet NSTextField *toastMessageTextField;
-@property (weak) IBOutlet NSVisualEffectView *toastBlurView;
+@property (strong) IBOutlet NSWindow *toastWindow;
+@property (strong) IBOutlet NSView *toastView;
+@property (strong) IBOutlet NSTextField *toastMessageTextField;
+@property (strong) IBOutlet NSVisualEffectView *toastBlurView;
 @end
 
 @implementation AppDelegate
@@ -82,13 +83,21 @@
 
 - (void)showToast:(NSString *)message withTime:(NSTimeInterval)timeInterval {
     if ([self darkModeIsOn]) {
-        [self.toastBlurView setMaterial:NSVisualEffectMaterialDark];
+        if (@available(macOS 10.10, *)) {
+            [self.toastBlurView setMaterial:NSVisualEffectMaterialDark];
+        } else {
+            // Fallback on earlier versions
+        }
         [self.toastMessageTextField setTextColor:[NSColor whiteColor]];
     } else {
         if (@available(macOS 10.11, *)) {
             [self.toastBlurView setMaterial:NSVisualEffectMaterialMediumLight];
         } else {
-            [self.toastBlurView setMaterial:NSVisualEffectMaterialLight];
+            if (@available(macOS 10.10, *)) {
+                [self.toastBlurView setMaterial:NSVisualEffectMaterialLight];
+            } else {
+                // Fallback on earlier versions
+            }
         }
         [self.toastMessageTextField setTextColor:[NSColor blackColor]];
     }
@@ -97,38 +106,51 @@
         self.toastMessageTextField.stringValue = message;
 
         NSRect frameRelativeToWindow = [self.statusItemView convertRect:self.statusItemView.bounds toView:nil];
-        NSRect frameRelativeToScreen = [self.statusItemView.window convertRectToScreen:frameRelativeToWindow];
+        if (@available(macOS 10.7, *)) {
+            NSRect frameRelativeToScreen = [self.statusItemView.window convertRectToScreen:frameRelativeToWindow];
+            
+            
+            CGFloat labelHeight = [((NSTextFieldCell *)[self.toastMessageTextField cell]) cellSizeForBounds:NSMakeRect(0, 0, 216, 76)].height;
+            
+            NSRect windowRect = self.toastWindow.frame;
+            windowRect.origin.x = frameRelativeToScreen.origin.x;
+            windowRect.origin.y = frameRelativeToScreen.origin.y - (labelHeight + 21);
+            windowRect.size.height = labelHeight + 20;
+            [self.toastWindow setFrame:windowRect display:YES];
 
-        
-        CGFloat labelHeight = [((NSTextFieldCell *)[self.toastMessageTextField cell]) cellSizeForBounds:NSMakeRect(0, 0, 216, 76)].height;
-
-        NSRect windowRect = self.toastWindow.frame;
-        windowRect.origin.x = frameRelativeToScreen.origin.x;
-        windowRect.origin.y = frameRelativeToScreen.origin.y - (labelHeight + 20);
-        windowRect.size.height = labelHeight + 20;
-        [self.toastWindow setFrame:windowRect display:YES];
+        } else {
+            // Fallback on earlier versions
+        }
         
         [self.toastWindow setLevel:NSScreenSaverWindowLevel + 1];
         [self.toastWindow orderFront:nil];
         self.toastWindow.alphaValue = 0;
         [self.toastWindow setIsVisible:YES];
-        [NSAnimationContext runAnimationGroup:^(NSAnimationContext * _Nonnull context) {
-            context.duration = 0.2;
-            [self.toastWindow animator].alphaValue = 1;
-        } completionHandler:^{
-            [NSTimer scheduledTimerWithTimeInterval:timeInterval target:self selector:@selector(nestedAnimation) userInfo:nil repeats:NO];
-        }];
+        if (@available(macOS 10.7, *)) {
+            [NSAnimationContext runAnimationGroup:^(NSAnimationContext * _Nonnull context) {
+                context.duration = 0.2;
+                [self.toastWindow animator].alphaValue = 1;
+            } completionHandler:^{
+                [NSTimer scheduledTimerWithTimeInterval:timeInterval target:self selector:@selector(nestedAnimation) userInfo:nil repeats:NO];
+            }];
+        } else {
+            // Fallback on earlier versions
+        }
     }
 }
 
 - (void)nestedAnimation {
-    [NSAnimationContext runAnimationGroup:^(NSAnimationContext * _Nonnull context) {
-        context.duration = 0.3;
-        [self.toastWindow animator].alphaValue = 0;
-    } completionHandler:^{
-        [self.toastWindow setIsVisible:NO];
-        self.animating = NO;
-    }];
+    if (@available(macOS 10.7, *)) {
+        [NSAnimationContext runAnimationGroup:^(NSAnimationContext * _Nonnull context) {
+            context.duration = 0.3;
+            [self.toastWindow animator].alphaValue = 0;
+        } completionHandler:^{
+            [self.toastWindow setIsVisible:NO];
+            self.animating = NO;
+        }];
+    } else {
+        // Fallback on earlier versions
+    }
 }
 
 - (void)toggleLeftRightClick:(id)sender {
@@ -227,7 +249,7 @@
     NSArray *copiedItems = [pasteboard readObjectsForClasses:classes options:options];
     if (copiedItems != nil) {
 //        NSLog(@"%@", copiedItems);
-        NSString *str = copiedItems[0];
+        NSString *str = [copiedItems firstObject];
         if (str != nil && [str isKindOfClass:[NSString class]]) {
             [pasteboard clearContents];
             [pasteboard declareTypes:[NSArray arrayWithObject:NSStringPboardType] owner:nil];
