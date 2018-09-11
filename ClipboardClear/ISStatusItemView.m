@@ -57,7 +57,11 @@
 
 - (void)drawRect:(NSRect)rect{
     if(self.clicked){
-        [[NSColor selectedMenuItemColor] set];
+        if (@available(macOS 10.14, *)) {
+            [[NSColor controlAccentColor] set];
+        } else {
+            [[NSColor selectedMenuItemColor] set];
+        }
         NSRectFill(rect);
     }
     if ([self darkModeIsOn] && self.alternateImage) {
