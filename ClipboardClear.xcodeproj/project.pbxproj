@@ -196,10 +196,20 @@
 					3CA534D81FDA447D00F6436F = {
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.HardenedRuntime = {
+								enabled = 1;
+							};
+						};
 					};
 					3CFF1CEA1FDA4C7400CACA4C = {
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.HardenedRuntime = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -400,7 +410,8 @@
 				CODE_SIGN_ENTITLEMENTS = ClipboardClear/ClipboardClear.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 54362BT7G2;
+				DEVELOPMENT_TEAM = 3Q7XKEDZ36;
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = ClipboardClear/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
@@ -416,7 +427,8 @@
 				CODE_SIGN_ENTITLEMENTS = ClipboardClear/ClipboardClear.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 54362BT7G2;
+				DEVELOPMENT_TEAM = 3Q7XKEDZ36;
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = ClipboardClear/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
@@ -432,7 +444,8 @@
 				CODE_SIGN_ENTITLEMENTS = "ClipboardClear Helper/ClipboardClear_Helper.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 54362BT7G2;
+				DEVELOPMENT_TEAM = 3Q7XKEDZ36;
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "ClipboardClear Helper/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
@@ -449,7 +462,8 @@
 				CODE_SIGN_ENTITLEMENTS = "ClipboardClear Helper/ClipboardClear_Helper.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 54362BT7G2;
+				DEVELOPMENT_TEAM = 3Q7XKEDZ36;
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "ClipboardClear Helper/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
