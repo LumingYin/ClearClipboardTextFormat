@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:ClipboardClear.xcodeproj">
+      location = "self:/Volumes/SSD/blue/Repos/ClipboardClear/Clear Clipboard Text Format.xcodeproj">
    </FileRef>
 </Workspace>

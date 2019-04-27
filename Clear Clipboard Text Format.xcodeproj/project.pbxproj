@@ -22,7 +22,7 @@
 		3CFF1CF41FDA4C7400CACA4C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CFF1CF21FDA4C7400CACA4C /* MainMenu.xib */; };
 		3CFF1CF71FDA4C7400CACA4C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CFF1CF61FDA4C7400CACA4C /* main.m */; };
 		3CFF1CFE1FDA4CA500CACA4C /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CFF1CFD1FDA4C9C00CACA4C /* ServiceManagement.framework */; };
-		3CFF1D001FDA4CCC00CACA4C /* ClipboardClear Helper.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3CFF1CEB1FDA4C7400CACA4C /* ClipboardClear Helper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		3CFF1D001FDA4CCC00CACA4C /* Clear Clipboard Text Format Helper.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3CFF1CEB1FDA4C7400CACA4C /* Clear Clipboard Text Format Helper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -32,7 +32,7 @@
 			dstPath = Contents/Library/LoginItems;
 			dstSubfolderSpec = 1;
 			files = (
-				3CFF1D001FDA4CCC00CACA4C /* ClipboardClear Helper.app in CopyFiles */,
+				3CFF1D001FDA4CCC00CACA4C /* Clear Clipboard Text Format Helper.app in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,7 +43,7 @@
 		3C6E43491FDB21940038CEA6 /* clipboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clipboard.png; sourceTree = "<group>"; };
 		3C6E434C1FDB22BA0038CEA6 /* clipboard_dark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clipboard_dark@2x.png"; sourceTree = "<group>"; };
 		3C6E434D1FDB22BA0038CEA6 /* clipboard_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clipboard_dark.png; sourceTree = "<group>"; };
-		3CA534D91FDA447D00F6436F /* ClipboardClear.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClipboardClear.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3CA534D91FDA447D00F6436F /* Clear Clipboard Text Format.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Clear Clipboard Text Format.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CA534DC1FDA447D00F6436F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3CA534DD1FDA447D00F6436F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		3CA534DF1FDA447D00F6436F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -54,7 +54,7 @@
 		3CA534F51FDA469300F6436F /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
 		3CA534FA1FDA48C000F6436F /* ISStatusItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ISStatusItemView.h; sourceTree = "<group>"; };
 		3CA534FB1FDA48C000F6436F /* ISStatusItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ISStatusItemView.m; sourceTree = "<group>"; };
-		3CFF1CEB1FDA4C7400CACA4C /* ClipboardClear Helper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ClipboardClear Helper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3CFF1CEB1FDA4C7400CACA4C /* Clear Clipboard Text Format Helper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Clear Clipboard Text Format Helper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CFF1CED1FDA4C7400CACA4C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3CFF1CEE1FDA4C7400CACA4C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		3CFF1CF01FDA4C7400CACA4C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -97,8 +97,8 @@
 		3CA534DA1FDA447D00F6436F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3CA534D91FDA447D00F6436F /* ClipboardClear.app */,
-				3CFF1CEB1FDA4C7400CACA4C /* ClipboardClear Helper.app */,
+				3CA534D91FDA447D00F6436F /* Clear Clipboard Text Format.app */,
+				3CFF1CEB1FDA4C7400CACA4C /* Clear Clipboard Text Format Helper.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -149,9 +149,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3CA534D81FDA447D00F6436F /* ClipboardClear */ = {
+		3CA534D81FDA447D00F6436F /* Clear Clipboard Text Format */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3CA534EA1FDA447D00F6436F /* Build configuration list for PBXNativeTarget "ClipboardClear" */;
+			buildConfigurationList = 3CA534EA1FDA447D00F6436F /* Build configuration list for PBXNativeTarget "Clear Clipboard Text Format" */;
 			buildPhases = (
 				3CA534D51FDA447D00F6436F /* Sources */,
 				3CA534D61FDA447D00F6436F /* Frameworks */,
@@ -162,14 +162,14 @@
 			);
 			dependencies = (
 			);
-			name = ClipboardClear;
+			name = "Clear Clipboard Text Format";
 			productName = ClipboardClear;
-			productReference = 3CA534D91FDA447D00F6436F /* ClipboardClear.app */;
+			productReference = 3CA534D91FDA447D00F6436F /* Clear Clipboard Text Format.app */;
 			productType = "com.apple.product-type.application";
 		};
-		3CFF1CEA1FDA4C7400CACA4C /* ClipboardClear Helper */ = {
+		3CFF1CEA1FDA4C7400CACA4C /* Clear Clipboard Text Format Helper */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3CFF1CF91FDA4C7400CACA4C /* Build configuration list for PBXNativeTarget "ClipboardClear Helper" */;
+			buildConfigurationList = 3CFF1CF91FDA4C7400CACA4C /* Build configuration list for PBXNativeTarget "Clear Clipboard Text Format Helper" */;
 			buildPhases = (
 				3CFF1CE71FDA4C7400CACA4C /* Sources */,
 				3CFF1CE81FDA4C7400CACA4C /* Frameworks */,
@@ -179,9 +179,9 @@
 			);
 			dependencies = (
 			);
-			name = "ClipboardClear Helper";
+			name = "Clear Clipboard Text Format Helper";
 			productName = "ClipboardClear Helper";
-			productReference = 3CFF1CEB1FDA4C7400CACA4C /* ClipboardClear Helper.app */;
+			productReference = 3CFF1CEB1FDA4C7400CACA4C /* Clear Clipboard Text Format Helper.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -213,7 +213,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 3CA534D41FDA447D00F6436F /* Build configuration list for PBXProject "ClipboardClear" */;
+			buildConfigurationList = 3CA534D41FDA447D00F6436F /* Build configuration list for PBXProject "Clear Clipboard Text Format" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -226,8 +226,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3CA534D81FDA447D00F6436F /* ClipboardClear */,
-				3CFF1CEA1FDA4C7400CACA4C /* ClipboardClear Helper */,
+				3CA534D81FDA447D00F6436F /* Clear Clipboard Text Format */,
+				3CFF1CEA1FDA4C7400CACA4C /* Clear Clipboard Text Format Helper */,
 			);
 		};
 /* End PBXProject section */
@@ -476,7 +476,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3CA534D41FDA447D00F6436F /* Build configuration list for PBXProject "ClipboardClear" */ = {
+		3CA534D41FDA447D00F6436F /* Build configuration list for PBXProject "Clear Clipboard Text Format" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3CA534E81FDA447D00F6436F /* Debug */,
@@ -485,7 +485,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3CA534EA1FDA447D00F6436F /* Build configuration list for PBXNativeTarget "ClipboardClear" */ = {
+		3CA534EA1FDA447D00F6436F /* Build configuration list for PBXNativeTarget "Clear Clipboard Text Format" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3CA534EB1FDA447D00F6436F /* Debug */,
@@ -494,7 +494,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3CFF1CF91FDA4C7400CACA4C /* Build configuration list for PBXNativeTarget "ClipboardClear Helper" */ = {
+		3CFF1CF91FDA4C7400CACA4C /* Build configuration list for PBXNativeTarget "Clear Clipboard Text Format Helper" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3CFF1CFA1FDA4C7400CACA4C /* Debug */,
